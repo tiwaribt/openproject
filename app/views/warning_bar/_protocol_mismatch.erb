@@ -1,0 +1,12 @@
+<div id="pending-migrations-warning" class="warning-bar--item unsupported-browser-warning--pane">
+  <span class="icon3 icon-warning"></span>
+  <p>
+    <strong>Protocol setting mismatch</strong>
+    <br/>
+    Your application is running with Protocol set to <code><%= Setting.protocol %></code>, but the request
+    is a <code><%= request.ssl? ? 'https' : 'http' %></code>  request.
+    <br/>
+
+    This will result in errors! Go to <%= link_to 'System settings', settings_path %> and change the "Protocol" setting to correct this.
+  </p>
+</div>

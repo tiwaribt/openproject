@@ -35,6 +35,12 @@ module WarningBarHelper
       OpenProject::Database.migrations_pending?
   end
 
+  def render_protocol_mismatch?
+    current_user.admin? &&
+      ((request.ssl? && Setting.protocol == 'http') ||
+       (!request.ssl? && Setting.protocol == 'https'))
+  end
+
   ##
   # By default, never show a warning bar in the
   # test mode due to overshadowing other elements.
